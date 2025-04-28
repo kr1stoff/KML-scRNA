@@ -130,6 +130,7 @@ plot.clstr.dim <- function(data, pcaplot, umaplot, tsneplot) {
 }
 
 plot.mrkr.vln.umap <- function(mrkrs, data, vlnplot, mrkr.umap.plot) {
+  # 差异基因在不同细胞分类中的表达小提琴图
   # 每个 cluster 选第 1 个
   pbmc.markers %>%
     group_by(cluster) %>%
