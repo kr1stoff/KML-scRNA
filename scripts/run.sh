@@ -5,9 +5,7 @@ THREADS=32
 mkdir -p ${WORKDIR}/fastqc
 mamba -n basic run fastqc -t $THREADS -f fastq -o ${WORKDIR}/fastqc \
     /data/rawdata/supplier/ilmn_250418_scRNA_demo/illumina_single_cell_3RNA_prep/HEK-3T3-Human-Mouse-Mixture-T2_S3_L001_R1_001.fastq.gz \
-    /data/rawdata/supplier/ilmn_250418_scRNA_demo/illumina_single_cell_3RNA_prep/HEK-3T3-Human-Mouse-Mixture-T2_S3_L001_R2_001.fastq.gz \
-    /data/rawdata/supplier/ilmn_250418_scRNA_demo/illumina_single_cell_3RNA_prep/HEK-3T3-Human-Mouse-Mixture-T2_S3_L002_R1_001.fastq.gz \
-    /data/rawdata/supplier/ilmn_250418_scRNA_demo/illumina_single_cell_3RNA_prep/HEK-3T3-Human-Mouse-Mixture-T2_S3_L002_R2_001.fastq.gz &
+    /data/rawdata/supplier/ilmn_250418_scRNA_demo/illumina_single_cell_3RNA_prep/HEK-3T3-Human-Mouse-Mixture-T2_S3_L001_R2_001.fastq.gz &
 # GC, Q20, Q30
 mkdir ${WORKDIR}/fastq_count
 /data/mengxf/Software/GitHub/fastq_count/fastq_count \
@@ -16,13 +14,6 @@ mkdir ${WORKDIR}/fastq_count
 /data/mengxf/Software/GitHub/fastq_count/fastq_count \
     -output ${WORKDIR}/fastq_count/HEK-3T3-Human-Mouse-Mixture-T2_S3_L001_R2_001.tsv \
     /data/rawdata/supplier/ilmn_250418_scRNA_demo/illumina_single_cell_3RNA_prep/HEK-3T3-Human-Mouse-Mixture-T2_S3_L001_R2_001.fastq.gz &
-/data/mengxf/Software/GitHub/fastq_count/fastq_count \
-    -output ${WORKDIR}/fastq_count/HEK-3T3-Human-Mouse-Mixture-T2_S3_L002_R1_001.tsv \
-    /data/rawdata/supplier/ilmn_250418_scRNA_demo/illumina_single_cell_3RNA_prep/HEK-3T3-Human-Mouse-Mixture-T2_S3_L002_R1_001.fastq.gz &
-/data/mengxf/Software/GitHub/fastq_count/fastq_count \
-    -output ${WORKDIR}/fastq_count/HEK-3T3-Human-Mouse-Mixture-T2_S3_L002_R2_001.tsv \
-    /data/rawdata/supplier/ilmn_250418_scRNA_demo/illumina_single_cell_3RNA_prep/HEK-3T3-Human-Mouse-Mixture-T2_S3_L002_R2_001.fastq.gz &
-wait
 
 # 二级分析
 # L00[12] 2 个 lane 的数据，pipseeker 也可以识别
