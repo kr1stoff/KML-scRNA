@@ -90,7 +90,7 @@ run.pca <- function(data) {
 }
 
 print.pca.detail <- function(data, pcafile) {
-  # 前10 个 PCA 结果明细
+  # 前 10 个 PCA 结果明细
   sink(pcafile)
   print(data[["pca"]], dims = 1:5, nfeatures = 5)
   sink()
